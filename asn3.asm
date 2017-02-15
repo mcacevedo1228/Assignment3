@@ -91,24 +91,25 @@ main    endp
 
 
 print_int proc
-     push eax
-     push ebx
-     push ecx
-     push edx
 
-     push eax
-     push offset unsigned_integer_format
-     push offset buffer
-     call wsprintf
-     add  esp, 12
+     push 		eax
+     push 		ebx	
+     push 		ecx
+     push 		edx
 
-     push offset buffer
-     call StdOut
+     push 		eax
+     push 		offset unsigned_integer_format
+     push 		offset buffer
+     call 		wsprintf
+     add  		esp, 12
 
-     pop  edx
-     pop  ecx
-     pop  ebx
-     pop  eax
+     push 		offset buffer
+     call 		StdOut
+
+     pop  		edx
+     pop  		ecx
+     pop  		ebx
+     pop  		eax
 
      ret
      
